@@ -10,17 +10,15 @@ import * as AppRoutes from 'config';
 import Home from 'container/pages';
 
 
-function App() {
-  return (
-    <Switch>
-      <Route
-        exact
-        path={AppRoutes.Home}
-        component={Home}
-      />
-      <Redirect from="*" to="/error-404" />
-    </Switch>
-  );
-}
+const App = () => (
+  <Switch>
+    <Route
+      exact
+      path={AppRoutes.Home}
+      component={Home}
+    />
+    <Redirect from="*" to="/error-404" />
+  </Switch>
+);
 
 export default App;

@@ -6,8 +6,7 @@ import Input from './index';
 import Notes from './readme.md';
 
 storiesOf('Atoms', module).add('Input', () => (
-<Input />
+  <Input />
 ), {
-info: { inline: true, header: false, text: Notes },
-}
-);
+  info: { inline: true, header: false, text: Notes }
+});

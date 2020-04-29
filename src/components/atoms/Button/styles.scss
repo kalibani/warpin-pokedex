@@ -2,10 +2,29 @@
 Styles for Button component
 ========================================================================== */
 
-// import mixin and variables
+// import variables
 @import "../../../assets/styles/variables";
 
 // Start styles Button component
 .a-button {
+  width: 120px;
+  height: 36px;
+  margin: 0 auto;
+  padding: 0;
+  display: inline-block;
+  text-align: center;
+  background-color: $blue;
+  border-radius: 5px;
+  color: $white;
+  border: 1px solid;
+  cursor: pointer;
+  &.is-mobile {
+    width: 70px;
+    height: 35px;
+    font-size: 14px;
+  }
 
+  &:focus {
+    outline: none;
+  }
 }

@@ -1,32 +1,44 @@
 // Landing Component
 // --------------------------------------------------------
 
-import React, { Component } from "react";
+import React from 'react';
+import { shallowEqual, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import classname from 'classnames';
+// import { Button } from 'components';
+// import { getPokemonList } from 'stores/actions/pokemon';
 import './styles.scss';
 
-class Landing extends Component {
-// state = {};
-// componentDidMount() {}
-// yourFunction = () => {};
+const Landing = ({ propsName }) => {
+  const { data, isLoading } = useSelector(({ pokemon }) => ({
+    data: pokemon.data,
+    isLoading: pokemon.isLoading
+  }), shallowEqual);
 
-render() {
-const { propsName } = this.props;
+  const classNames = classname('p-landing');
+  return (
 
-return (
-<tag>
-  Class Component (Stateful Component)
-</tag>
-);
-}
-}
+    <div className={classNames}>
+
+      <div className="landing-content">
+        im clicked
+        {' '}
+        {data}
+        {' '}
+        times
+      </div>
+
+
+    </div>
+  );
+};
 
 Landing.propTypes = {
-propsName: PropTypes.string,
+  propsName: PropTypes.string
 };
 
 Landing.defaultProps = {
-propsName: '',
+  propsName: ''
 };
 
 export default (Landing);

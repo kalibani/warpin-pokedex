@@ -1,14 +1,11 @@
 /* ==========================================================================
-Styles for Home component
+Styles for H1 component
 ========================================================================== */
 
-// import mixin and variables
+// import variables
 @import "../../../assets/styles/variables";
 
-// Start styles Home component
-.p-home {
-  background-color: red;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+// Start styles H1 component
+.a-h1 {
+  font-size: 20px;
 }

@@ -2,16 +2,43 @@
 // --------------------------------------------------------
 
 import React from 'react';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
+import classname from 'classnames';
+import { Button } from 'components';
+import Landing from 'container/templates/Landing';
+import { getPokemonList } from 'stores/actions/pokemon';
 import './styles.scss';
 
-const Home = ({ propsName }) => (
-  <div>
-    Hai
-    {' '}
-    {propsName}
-  </div>
-);
+const Home = ({ propsName }) => {
+  const { data, isLoading } = useSelector(({ pokemon }) => ({
+    data: pokemon.data,
+    isLoading: pokemon.isLoading
+  }), shallowEqual);
+  const dispatch = useDispatch();
+  const classNames = classname('p-home');
+  return (
+
+    <div className={classNames}>
+      <div className="home-content">
+        <Button onClick={() => dispatch(getPokemonList(1))}>
+          Click Me
+          {' '}
+          {data}
+          {' '}
+          times
+        </Button>
+        {
+          isLoading && (
+            <div>
+              <Landing />
+            </div>
+          )
+        }
+      </div>
+    </div>
+  );
+};
 
 Home.propTypes = {
   propsName: PropTypes.string
