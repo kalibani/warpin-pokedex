@@ -1,0 +1,58 @@
+// {{ camelCase name }} Actions
+// --------------------------------------------------------
+
+/* eslint-disable space-before-function-paren */
+
+// import { delay } from 'helpers';
+// import { setValueCurrentPage, setValueTotalPage } from '../progressBar';
+// import { responeCode } from 'utils/helpers/responeCode';
+
+export const SET_LOADING = '{{ camelCase name }}/SET_LOADING';
+export const CLEAR_ERROR = '{{ camelCase name }}/CLEAR_ERROR';
+export const SET_ERROR = '{{ camelCase name }}/SET_ERROR';
+export const INIT_DATA = '{{ camelCase name }}/INIT_DATA';
+export const SET_STEP_CONTENT = '{{ camelCase name }}/SET_STEP_CONTENT';
+export const SET_DOUBLE_SUBMIT = '{{ camelCase name }}/SET_DOUBLE_SUBMIT';
+export const SET_ERROR_OTP = '{{ camelCase name }}/SET_ERROR_OTP';
+export const CLEAR_ERROR_OTP = '{{ camelCase name }}/CLEAR_ERROR_OTP';
+export const SET_OTP_BLOCKED = '{{ camelCase name }}/SET_OTP_BLOCKED';
+export const SET_FORM_SUBMITTING = '{{ camelCase name }}/SET_FORM_SUBMITTING';
+
+export const setStepContent = (payload) => (dispatch, getState) => {
+  // dispatch(setValueTotalPage('your value total page'));
+  // delay(255).then(() => {
+  //  switch (payload) {
+  //    case 'your case ....':
+  //      dispatch(setValueCurrentPage('page value...'));
+  //      break;
+  //    default:
+  //      dispatch(setValueCurrentPage('default value... '));
+  //      break;
+  //  }
+  // });
+  dispatch({ type: SET_STEP_CONTENT, payload });
+};
+
+export const setDoubleSubmit = (payload) => ({
+  type: SET_DOUBLE_SUBMIT,
+  payload
+});
+
+export const setErrOTP = (payload) => ({
+  type: SET_ERROR_OTP,
+  payload
+});
+
+export const setOTPBlocked = (payload) => ({
+  type: SET_OTP_BLOCKED,
+  payload
+});
+
+export const clearErrOTP = () => ({
+  type: CLEAR_ERROR_OTP
+});
+
+export const setFormSubmit = (payload) => ({
+  type: SET_FORM_SUBMITTING,
+  payload
+});
