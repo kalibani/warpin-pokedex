@@ -1,8 +1,8 @@
 // Landing Component
 // --------------------------------------------------------
 
-import React from 'react';
-import { shallowEqual, useSelector } from 'react-redux';
+import React, { memo } from 'react';
+// import { shallowEqual, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 // import { Button } from 'components';
@@ -10,11 +10,6 @@ import classname from 'classnames';
 import './styles.scss';
 
 const Landing = ({ propsName }) => {
-  const { data, isLoading } = useSelector(({ pokemon }) => ({
-    data: pokemon.data,
-    isLoading: pokemon.isLoading
-  }), shallowEqual);
-
   const classNames = classname('p-landing');
   return (
 
@@ -22,10 +17,6 @@ const Landing = ({ propsName }) => {
 
       <div className="landing-content">
         im clicked
-        {' '}
-        {data}
-        {' '}
-        times
       </div>
 
 
@@ -41,4 +32,4 @@ Landing.defaultProps = {
   propsName: ''
 };
 
-export default (Landing);
+export default memo(Landing);

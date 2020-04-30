@@ -5,13 +5,19 @@ import {
   SET_LOADING,
   CLEAR_ERROR,
   SET_ERROR,
-  SET_DATA_POKEMON
+  SET_DATA_POKEMON,
+  SET_NEXT_URL
 } from 'stores/actions/pokemon';
+
+const url = process.env.REACT_APP_API_URL;
+const urlByTypes = process.env.REACT_APP_API_URL_TYPE;
 
 const initialState = {
   isLoading: false,
   error: '',
-  data: 0
+  pokemonList: [],
+  urlByTypes,
+  url
 };
 
 export default (state = initialState, { payload, type }) => {
@@ -34,7 +40,12 @@ export default (state = initialState, { payload, type }) => {
     case SET_DATA_POKEMON:
       return {
         ...state,
-        data: payload
+        pokemonList: payload
+      };
+    case SET_NEXT_URL:
+      return {
+        ...state,
+        url: payload
       };
     default:
       return state;
