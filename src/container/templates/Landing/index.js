@@ -5,7 +5,7 @@ import React, { memo } from 'react';
 // import { shallowEqual, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
-// import { Button } from 'components';
+import { Header } from 'components';
 // import { getPokemonList } from 'stores/actions/pokemon';
 import './styles.scss';
 
@@ -15,10 +15,7 @@ const Landing = ({ propsName }) => {
 
     <div className={classNames}>
 
-      <div className="landing-content">
-        im clicked
-      </div>
-
+      <Header />
 
     </div>
   );

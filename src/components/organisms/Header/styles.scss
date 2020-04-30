@@ -1,0 +1,56 @@
+/* ==========================================================================
+Styles for Header component
+========================================================================== */
+
+// import mixin and variables
+@import "../../../assets/styles/variables";
+
+// Start styles Header component
+.o-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(3, 37, 65, 1);
+  height: 64px;
+  width: 100vw;
+  z-index: 10;
+  transition: top 0.2s linear;
+  .header-content {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+    .header-content-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      align-items: center;
+      overflow: visible;
+      ul {
+        margin: 0;
+        li {
+          display: inline;
+          padding: 0 20px;
+          
+          a {
+            color: $white;
+          }
+
+          .header-logo {
+            padding: 5px;
+            width: 113px;
+          }
+        }
+      }
+    }
+    .header-content-right {
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      justify-content: flex-end;
+      overflow: visible;
+    }
+  }
+}
