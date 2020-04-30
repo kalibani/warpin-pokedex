@@ -6,7 +6,8 @@ import {
   CLEAR_ERROR,
   SET_ERROR,
   SET_DATA_POKEMON,
-  SET_NEXT_URL
+  SET_NEXT_URL,
+  SET_KEY_WORD
 } from 'stores/actions/pokemon';
 
 const url = process.env.REACT_APP_API_URL;
@@ -15,6 +16,7 @@ const urlByTypes = process.env.REACT_APP_API_URL_TYPE;
 const initialState = {
   isLoading: false,
   error: '',
+  keyword: '',
   pokemonList: [],
   urlByTypes,
   url
@@ -46,6 +48,11 @@ export default (state = initialState, { payload, type }) => {
       return {
         ...state,
         url: payload
+      };
+    case SET_KEY_WORD:
+      return {
+        ...state,
+        keyword: payload
       };
     default:
       return state;

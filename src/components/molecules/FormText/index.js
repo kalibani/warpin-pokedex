@@ -2,8 +2,8 @@
 // FormText Component
 // --------------------------------------------------------
 
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useCallback } from 'react';
+import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import classname from 'classnames';
 import { Input, Button } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -11,27 +11,41 @@ import {
   faSearch
 } from '@fortawesome/free-solid-svg-icons';
 import './styles.scss';
+import { searchPokemonByTypes, setKeyword } from 'stores/actions/pokemon';
 
-const FormText = ({ title, content, fontAwesome }) => {
-  const [keyword, setKeyword] = useState('');
+
+const FormText = () => {
+  const { keyword } = useSelector(({ pokemon }) => ({
+    keyword: pokemon.keyword
+  }), shallowEqual);
+
+  const dispatch = useDispatch();
+
+  const searchByTypes = useCallback((e) => {
+    e.preventDefault();
+    dispatch(searchPokemonByTypes());
+  }, [dispatch]);
+
+  const handleChange = useCallback(({ target: { value } }) => dispatch(setKeyword(value)),
+    [dispatch]);
   const classNames = classname('m-form-text');
-  const handleChange = (e) => {
-    console.warn('iniii', e.target.value);
-    setKeyword(e.target.value);
-  };
   return (
     <div className={classNames}>
       <div className="form-text-wrapper">
-        <form>
+        <form id="form" onSubmit={searchByTypes}>
           <Input
-            id="form-text"
+            id="keyword"
+            name="keyword"
             type="text"
             placeholder="Search for a types of Pokemon......"
             value={keyword}
             className="form-control"
             onChange={handleChange}
           />
-          <Button className="button-form-text">
+          <Button
+            type="submit"
+            className="button-form-text"
+          >
             <span>
               Search
             </span>
@@ -40,23 +54,7 @@ const FormText = ({ title, content, fontAwesome }) => {
         </form>
       </div>
     </div>
-
   );
-};
-
-FormText.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-  fontAwesome: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ])
-};
-
-FormText.defaultProps = {
-  title: '',
-  content: '',
-  fontAwesome: ''
 };
 
 export default FormText;

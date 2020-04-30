@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 // Button Component
 // --------------------------------------------------------
 
@@ -15,6 +16,7 @@ const Button = ({
   onClick,
   disabled,
   full,
+  type,
   children
 }) => {
   const classNames = classname('a-button', className, variant, family, {
@@ -24,7 +26,7 @@ const Button = ({
     <>
       <button
         className={classNames}
-        type="button"
+        type={type}
         onClick={onClick}
         tabIndex={tabIndex}
         style={style}
@@ -45,6 +47,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   disabled: PropTypes.bool,
   full: PropTypes.bool,
+  type: PropTypes.string,
   children: PropTypes.node
 };
 
@@ -57,7 +60,8 @@ Button.defaultProps = {
   onClick: () => {},
   disabled: false,
   full: false,
-  children: ''
+  children: '',
+  type: 'button'
 };
 
 export default Button;
