@@ -9,9 +9,6 @@ Styles for Card component
 // Start styles Card component
 .m-card {
   margin-top: 30px;
-  -webkit-box-shadow:inset 0px 0px 0px 1px #B6B4B3;
-  -moz-box-shadow:inset 0px 0px 0px 1px #B6B4B3;
-  box-shadow:inset 0px 0px 0px 1px #B6B4B3;
   padding: 15px;
 
   // Ipad Pro
@@ -19,24 +16,18 @@ Styles for Card component
   and (min-width: 834px) 
   and (max-width: 1194px) {
     &.m-card {
-      height: 180px;
+      // height: 180px;
     }
   }
 
-  .o-card-header {
-    display: flex;
-    justify-content: space-between;
-    h4 {
-      color: $outer-space;
-      font-size: 16px;
+  .card-image-wrapper {
+    border-radius: 10px;
+    width: 220px;
+    min-height: calc(150px * 1.5);
+    background: #dbdbdb;
+    overflow: hidden;
+    .image-card {
+      border-radius: 10px;
     }
-    svg {
-      color: $silver;
-    }
-  }
-  .card-content {
-    font-size: 14px;
-    font-weight: 400;
-    color: $outer-space;
   }
 }

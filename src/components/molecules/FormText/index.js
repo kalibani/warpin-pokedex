@@ -7,12 +7,10 @@ import { shallowEqual, useSelector, useDispatch } from 'react-redux';
 import classname from 'classnames';
 import { Input, Button } from 'components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faSearch
-} from '@fortawesome/free-solid-svg-icons';
-import './styles.scss';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { searchPokemonByTypes, setKeyword } from 'stores/actions/pokemon';
 
+import './styles.scss';
 
 const FormText = () => {
   const { keyword } = useSelector(({ pokemon }) => ({
@@ -20,15 +18,14 @@ const FormText = () => {
   }), shallowEqual);
 
   const dispatch = useDispatch();
-
   const searchByTypes = useCallback((e) => {
     e.preventDefault();
     dispatch(searchPokemonByTypes());
   }, [dispatch]);
 
-  const handleChange = useCallback(({ target: { value } }) => dispatch(setKeyword(value)),
-    [dispatch]);
+  const handleChange = useCallback(({ target: { value } }) => dispatch(setKeyword(value)), [dispatch]);
   const classNames = classname('m-form-text');
+
   return (
     <div className={classNames}>
       <div className="form-text-wrapper">

@@ -2,7 +2,7 @@
 // Button Component
 // --------------------------------------------------------
 
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import './styles.scss';
@@ -64,4 +64,4 @@ Button.defaultProps = {
   type: 'button'
 };
 
-export default Button;
+export default memo(Button);

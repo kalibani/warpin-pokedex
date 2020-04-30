@@ -1,14 +1,12 @@
 // Header Component
 // --------------------------------------------------------
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { memo } from 'react';
 import classname from 'classnames';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from 'assets/images/pokeapi_256.png';
 import './styles.scss';
 
-const Header = ({ title, content, fontAwesome }) => {
+const Header = () => {
   const classNames = classname('o-header');
   return (
     <header className={classNames}>
@@ -28,23 +26,7 @@ const Header = ({ title, content, fontAwesome }) => {
         </div>
       </div>
     </header>
-
   );
 };
 
-Header.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-  fontAwesome: PropTypes.oneOfType([
-    PropTypes.object,
-    PropTypes.string
-  ])
-};
-
-Header.defaultProps = {
-  title: '',
-  content: '',
-  fontAwesome: ''
-};
-
-export default Header;
+export default memo(Header);

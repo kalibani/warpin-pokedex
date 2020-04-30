@@ -1,7 +1,7 @@
 // H1 Component
 // --------------------------------------------------------
 
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
 import './styles.scss';
@@ -27,4 +27,4 @@ H1.defaultProps = {
   children: ''
 };
 
-export default H1;
+export default memo(H1);
