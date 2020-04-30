@@ -7,5 +7,47 @@ Styles for FormText component
 
 // Start styles FormText component
 .m-form-text {
+  width: 100%;
+  position: relative;
+  left: 27px;
+  .form-text-wrapper {
+    form {
+      display: flex;
+      .form-control {
+        border-radius: 30px;
+        width: 100%;
+        height: 46px;
+        line-height: 46px;
+        font-size: 1.1em;
+        color: rgba(0,0,0,0.5);
+        border: none;
+        padding: 10px 20px;
+        position: relative;
+        // left: 50px;
+        &::placeholder {
+          color: $silver;
+          font-size: 16px;
+        }
+      }
+      .button-form-text {
+        height: 46px;
+        padding: 10px 26px;
+        border: none;
+        border-radius: 30px;
+        position: relative;
+        right: 50px;
+        background-color: #032241;
+        color: $white;
+        &:hover {
+          color: $silver;
+        }
+        svg {
+          position: relative;
+          left: 10px;
+          top: 2px;
+        }
+      }
+    }
+  }
 
 }

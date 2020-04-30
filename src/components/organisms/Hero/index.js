@@ -1,32 +1,44 @@
+/* eslint-disable import/no-cycle */
 // Hero Component
 // --------------------------------------------------------
 
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import classname from 'classnames';
+import { FormText, H1, H2 } from 'components';
 import './styles.scss';
 
-class Hero extends Component {
-// state = {};
-// componentDidMount() {}
-// yourFunction = () => {};
+const Hero = ({ title, content, fontAwesome }) => {
+  const classNames = classname('o-hero');
+  return (
+    <div className={classNames}>
+      <div className="hero-content">
+        <H1>
+          Welcome.
+        </H1>
+        <H2 className="hero-text-2">
+          Hundreds of pokemons, Movie shows and games to discover. Explore now.
+        </H2>
+        <FormText />
+      </div>
+    </div>
 
-  render() {
-    const { propsName } = this.props;
-
-    return (
-      <tag>
-        Class Component (Stateful Component)
-      </tag>
-    );
-  }
-}
+  );
+};
 
 Hero.propTypes = {
-  propsName: PropTypes.string
+  title: PropTypes.string,
+  content: PropTypes.string,
+  fontAwesome: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string
+  ])
 };
 
 Hero.defaultProps = {
-  propsName: ''
+  title: '',
+  content: '',
+  fontAwesome: ''
 };
 
-export default (Hero);
+export default Hero;

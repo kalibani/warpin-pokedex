@@ -5,19 +5,20 @@ import React, { memo } from 'react';
 // import { shallowEqual, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import classname from 'classnames';
-import { Header } from 'components';
-// import { getPokemonList } from 'stores/actions/pokemon';
+import { Header, Hero } from 'components';
 import './styles.scss';
 
 const Landing = ({ propsName }) => {
-  const classNames = classname('p-landing');
+  const classNames = classname('t-landing');
   return (
-
-    <div className={classNames}>
-
+    <>
       <Header />
-
-    </div>
+      <main className={classNames}>
+        <div className="landing-content">
+          <Hero />
+        </div>
+      </main>
+    </>
   );
 };
 
