@@ -2,12 +2,13 @@
 // --------------------------------------------------------
 
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 import classname from 'classnames';
 import logo from 'assets/images/pokeapi_256.png';
 import './styles.scss';
 
-const Header = () => {
-  const classNames = classname('o-header');
+const Header = ({ className }) => {
+  const classNames = classname('o-header', className);
   return (
     <header className={classNames}>
       <div className="header-content">
@@ -27,6 +28,13 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  className: PropTypes.string
+};
+Header.defaultProps = {
+  className: ''
 };
 
 export default memo(Header);

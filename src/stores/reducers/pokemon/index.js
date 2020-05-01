@@ -7,7 +7,8 @@ import {
   SET_ERROR,
   SET_DATA_POKEMON,
   SET_NEXT_URL,
-  SET_KEY_WORD
+  SET_KEY_WORD,
+  SET_HAS_MORE
 } from 'stores/actions/pokemon';
 
 const url = process.env.REACT_APP_API_URL;
@@ -15,6 +16,7 @@ const urlByTypes = process.env.REACT_APP_API_URL_TYPE;
 
 const initialState = {
   isLoading: false,
+  hasMore: false,
   error: '',
   keyword: '',
   pokemonList: [],
@@ -53,6 +55,11 @@ export default (state = initialState, { payload, type }) => {
       return {
         ...state,
         keyword: payload
+      };
+    case SET_HAS_MORE:
+      return {
+        ...state,
+        hasMore: payload
       };
     default:
       return state;

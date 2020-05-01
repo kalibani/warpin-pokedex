@@ -1,0 +1,28 @@
+/* ==========================================================================
+Styles for Card component
+========================================================================== */
+
+// import variables
+@import "../../../assets/styles/variables";
+
+
+// Start styles Card component
+.a-placeholder {
+  margin: 30px 19px;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: calc(180px * 1.5);
+  width: 16%;
+  overflow: hidden;
+  background: linear-gradient(to right, rgba(3, 19, 65, 0.52) 0%, rgba(38, 3, 65, 0.08) 100%);
+  animation: pulse 5s infinite;
+
+  @keyframes pulse {
+    0% {
+      background-color: rgba(3, 19, 65, 0.20);
+    }
+    100% {
+      background-color: rgba(158, 152, 163, 0.08);
+    }
+  }
+}

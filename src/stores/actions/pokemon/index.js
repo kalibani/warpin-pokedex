@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 // pokemon Actions
 // --------------------------------------------------------
 
@@ -10,6 +11,7 @@ export const SET_ERROR = 'pokemon/SET_ERROR';
 export const SET_DATA_POKEMON = 'pokemon/SET_DATA_POKEMON';
 export const SET_NEXT_URL = 'pokemon/SET_NEXT_URL';
 export const SET_KEY_WORD = 'pokemon/SET_KEY_WORD';
+export const SET_HAS_MORE = 'pokemon/SET_HAS_MORE';
 
 const setLoading = (payload) => (dispatch) => {
   dispatch({ type: SET_LOADING, payload });
@@ -27,14 +29,25 @@ const setError = (payload) => (dispatch) => {
   dispatch({ type: SET_ERROR, payload });
 };
 
+const setHasMore = (payload) => (dispatch) => {
+  dispatch({ type: SET_HAS_MORE, payload });
+};
+
 export const setKeyword = (payload) => (dispatch) => {
   dispatch({ type: SET_KEY_WORD, payload });
 };
 
-export const getEachPokemon = (promises) => (dispatch) => {
+export const getEachPokemon = (promises, isSearching) => (dispatch, getState) => {
   Promise.all(promises)
     .then((response) => {
-      dispatch(setDataPokemon(response));
+      if (isSearching) {
+        dispatch(setDataPokemon(response));
+      } else {
+        const pokemonList = getState().pokemon.pokemonList;
+        const result = [...pokemonList, ...response];
+        dispatch(setDataPokemon(result));
+      }
+
       dispatch(setLoading(false));
       console.warn('each pokemon', response);
     })
@@ -46,6 +59,7 @@ export const getEachPokemon = (promises) => (dispatch) => {
 
 export const getDataPokemonList = () => (dispatch, getState) => {
   dispatch(setLoading(true));
+  dispatch(setHasMore(true));
   const url = getState().pokemon.url;
   getPokemons(url)
     .then(async ({ data }) => {
@@ -63,14 +77,17 @@ export const getDataPokemonList = () => (dispatch, getState) => {
 };
 
 export const searchPokemonByTypes = () => (dispatch, getState) => {
-  dispatch(setLoading(true));
-  const url = getState().pokemon.urlByTypes;
   const keyword = getState().pokemon.keyword;
+  if (!keyword) { return false; }
+  const url = getState().pokemon.urlByTypes;
+  dispatch(setLoading(true));
+  dispatch(setHasMore(false));
+
   getByTypes(url, keyword)
     .then(async ({ data }) => {
       const promises = [];
       data.pokemon.map((element) => promises.push(getPokemon(element.pokemon.url)));
-      await dispatch(getEachPokemon(promises));
+      await dispatch(getEachPokemon(promises, true));
     }).catch((error) => {
       dispatch(setLoading(false));
       dispatch(setError(error));
