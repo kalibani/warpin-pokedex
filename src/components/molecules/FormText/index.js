@@ -3,20 +3,17 @@
 // --------------------------------------------------------
 
 import React, { useCallback } from 'react';
-import { shallowEqual, useSelector, useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import classname from 'classnames';
 import { Input, Button } from 'components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { searchPokemonByTypes, setKeyword } from 'stores/actions/pokemon';
 
 import './styles.scss';
 
-const FormText = () => {
-  const { keyword } = useSelector(({ pokemon }) => ({
-    keyword: pokemon.keyword
-  }), shallowEqual);
-
+const FormText = ({
+  id, name, className, value
+}) => {
   const dispatch = useDispatch();
   const searchByTypes = useCallback((e) => {
     e.preventDefault();
@@ -31,12 +28,12 @@ const FormText = () => {
       <div className="form-text-wrapper">
         <form id="form" onSubmit={searchByTypes}>
           <Input
-            id="keyword"
-            name="keyword"
+            id={id}
+            name={name}
             type="text"
             placeholder="Search for a types of Pokemon......"
-            value={keyword}
-            className="form-control"
+            value={value}
+            className={className}
             onChange={handleChange}
           />
           <Button
@@ -46,12 +43,18 @@ const FormText = () => {
             <span>
               Search
             </span>
-            <FontAwesomeIcon icon={faSearch} />
           </Button>
         </form>
       </div>
     </div>
   );
+};
+
+FormText.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired
 };
 
 export default FormText;

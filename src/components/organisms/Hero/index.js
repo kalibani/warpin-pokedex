@@ -3,11 +3,15 @@
 // --------------------------------------------------------
 
 import React, { memo } from 'react';
+import { shallowEqual, useSelector } from 'react-redux';
 import classname from 'classnames';
 import { FormText, H1, H2 } from 'components';
 import './styles.scss';
 
 const Hero = () => {
+  const { keyword } = useSelector(({ pokemon }) => ({
+    keyword: pokemon.keyword
+  }), shallowEqual);
   const classNames = classname('o-hero');
   return (
     <div className={classNames}>
@@ -17,7 +21,12 @@ const Hero = () => {
           Hundreds of pokemons,
           Movie shows and games to discover. Explore now.
         </H2>
-        <FormText />
+        <FormText
+          id="form-search-hero"
+          name="form-search-hero"
+          className="form-control"
+          value={keyword}
+        />
       </div>
     </div>
   );

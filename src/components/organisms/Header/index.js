@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 // Header Component
 // --------------------------------------------------------
 
@@ -21,8 +22,8 @@ const Header = ({ className }) => {
         </div>
         <div className="header-content-wrapper">
           <ul>
-            <li><a href="/">Movies</a></li>
-            <li><a href="/">Games</a></li>
+            <li><a href="/">Contests</a></li>
+            <li><a href="/">Locations</a></li>
           </ul>
         </div>
       </div>

@@ -49,7 +49,6 @@ export const getEachPokemon = (promises, isSearching) => (dispatch, getState) =>
       }
 
       dispatch(setLoading(false));
-      console.warn('each pokemon', response);
     })
     .catch((error) => {
       dispatch(setLoading(false));
@@ -68,11 +67,9 @@ export const getDataPokemonList = () => (dispatch, getState) => {
       const promises = [];
       data.results.map((element) => promises.push(getPokemon(element.url)));
       await dispatch(getEachPokemon(promises));
-      console.warn('data', data);
     }).catch((error) => {
       dispatch(setLoading(false));
       dispatch(setError(error));
-      console.warn('error', error);
     });
 };
 
@@ -90,7 +87,7 @@ export const searchPokemonByTypes = () => (dispatch, getState) => {
       await dispatch(getEachPokemon(promises, true));
     }).catch((error) => {
       dispatch(setLoading(false));
+      dispatch(setDataPokemon([]));
       dispatch(setError(error));
-      console.warn('error', error);
     });
 };

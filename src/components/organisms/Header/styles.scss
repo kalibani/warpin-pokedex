@@ -39,6 +39,9 @@ Styles for Header component
           
           a {
             color: $white;
+            &:hover {
+              text-decoration: none;
+            }
           }
 
           .header-logo {

@@ -1,22 +1,30 @@
 // H4 Component
 // --------------------------------------------------------
 
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
+import classname from 'classnames';
 import './styles.scss';
 
-const H4 = ({ propsName }) => (
-  <tag>
-    Functional Component (Stateless Component)
-  </tag>
-);
+const H4 = ({
+  className, color, weight, children
+}) => {
+  const classNames = classname('a-h4', className, color, weight);
+  return <h4 className={classNames}>{children}</h4>;
+};
 
 H4.propTypes = {
-  propsName: PropTypes.string
+  className: PropTypes.string,
+  color: PropTypes.string,
+  weight: PropTypes.string,
+  children: PropTypes.node
 };
 
 H4.defaultProps = {
-  propsName: ''
+  className: '',
+  color: '',
+  weight: '',
+  children: ''
 };
 
-export default H4;
+export default memo(H4);
