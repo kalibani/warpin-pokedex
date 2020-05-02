@@ -1,10 +1,55 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`pokemonActions getDataPokemonList should execute setHasMore 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "pokemon/SET_HAS_MORE",
+  },
+]
+`;
+
+exports[`pokemonActions getDataPokemonList should execute setLoading 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "pokemon/SET_LOADING",
+  },
+]
+`;
+
 exports[`pokemonActions setDataPokemon Dispatches the correct action and payload 1`] = `
 Array [
   Object {
     "payload": Array [],
     "type": "pokemon/SET_DATA_POKEMON",
+  },
+]
+`;
+
+exports[`pokemonActions setError Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "pokemon/SET_ERROR",
+  },
+]
+`;
+
+exports[`pokemonActions setHasMore Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "pokemon/SET_HAS_MORE",
+  },
+]
+`;
+
+exports[`pokemonActions setKeyword Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "pokemon/SET_KEY_WORD",
   },
 ]
 `;
