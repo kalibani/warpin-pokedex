@@ -8,7 +8,9 @@ Access this web on [Catch The Pokemon](https://warpin-pokedex.herokuapp.com/).
 
 For running this App locally, you can just run:
 ## 1. git clone https://github.com/kalibani/warpin-pokedex.git
-## 2. Enter to the inside directory 'cd cermati-react'
+## 2. Enter to the inside directory 'cd warpin-pokedex'
 ## 3. npm install & npm run dev
+## 4. Testing => npm install & npm run test
+
 
 
