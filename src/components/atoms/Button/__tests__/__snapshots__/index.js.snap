@@ -1,3 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input is match the snapshot 1`] = `null`;
+exports[`<Button /> onClick() successfully calls the onClick handler and match the snapshot 1`] = `
+<Fragment>
+  <button
+    className="a-button"
+    disabled={false}
+    onClick={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    style={Object {}}
+    tabIndex="0"
+    type="button"
+  >
+    Click Me
+  </button>
+</Fragment>
+`;

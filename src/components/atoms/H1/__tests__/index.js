@@ -5,7 +5,7 @@ import React from 'react';
 import H1 from '../../index';
 import renderer from 'react-test-renderer';
 
-test('Input is match the snapshot', () => {
+test('H1 is match the snapshot', () => {
 const component = renderer.create(
 H1,
 );

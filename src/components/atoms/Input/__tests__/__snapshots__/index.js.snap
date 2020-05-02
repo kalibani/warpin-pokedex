@@ -1,3 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input is match the snapshot 1`] = `null`;
+exports[`<Input /> onClick() successfully calls the onChange handler and match the snapshot 1`] = `
+<Fragment>
+  <input
+    autoComplete="on"
+    className=""
+    disabled={false}
+    id=""
+    maxLength=""
+    name=""
+    onBlur={[Function]}
+    onChange={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+        "results": Array [
+          Object {
+            "type": "return",
+            "value": undefined,
+          },
+        ],
+      }
+    }
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    placeholder=""
+    tabIndex="0"
+    type="text"
+    value=""
+  />
+</Fragment>
+`;
