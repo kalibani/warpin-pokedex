@@ -18,6 +18,24 @@ Array [
 ]
 `;
 
+exports[`pokemonActions searchPokemonByTypes should execute setHasMore 1`] = `
+Array [
+  Object {
+    "payload": false,
+    "type": "pokemon/SET_HAS_MORE",
+  },
+]
+`;
+
+exports[`pokemonActions searchPokemonByTypes should execute setLoading 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "pokemon/SET_LOADING",
+  },
+]
+`;
+
 exports[`pokemonActions setDataPokemon Dispatches the correct action and payload 1`] = `
 Array [
   Object {

@@ -11,10 +11,12 @@ import { response } from 'express';
 const mockStore = configureStore([thunk]);
 const url = process.env.REACT_APP_API_URL;
 const urlByTypes = process.env.REACT_APP_API_URL_TYPE;
+const keyword = ''
 const mockState = {
   pokemon: { 
     url: url,
-    urlByTypes: urlByTypes
+    urlByTypes: urlByTypes,
+    keyword: keyword
   }
 }
 
@@ -155,19 +157,61 @@ describe('pokemonActions', () => {
         .then(({ data }) => expect(typeof data).toEqual('object'));
     });
   });
+
+
+  describe('searchPokemonByTypes', () => {
+
+    it('should execute setLoading', () => {
+      const expectedActions = [
+        {
+          'payload': true,
+          'type': 'pokemon/SET_LOADING',
+        },
+      ];
+
+      store.dispatch(pokemonActions.setLoading(true));
+      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual(expectedActions);
+    })
+    it('should execute setHasMore', () => {
+      const expectedActions = [
+        {
+          'payload': false,
+          'type': 'pokemon/SET_HAS_MORE',
+        },
+      ];
+
+      store.dispatch(pokemonActions.setHasMore(false));
+      expect(store.getActions()).toMatchSnapshot();
+      expect(store.getActions()).toEqual(expectedActions);
+    })
+
+    it('should execute fetch data', (done) => {
+      const getPokemonByTypes = getByTypes
+      getPokemonByTypes()
+      .then(response, () => done())
+      .catch('error', () => done.fail());
+    });
   
+    it('returns an object.', () => {
+      return getByTypes(urlByTypes, keyword)
+        .then(({ data }) => expect(typeof data).toEqual('object'));
+    });
+  });
 
-  // it('should execute fetch data', () => {
+  describe('getEachPokemon', () => {
 
-  //   const 
+    it('should execute fetch data', (done) => {
+      getPokemon()
+      .then(response, () => done())
+      .catch('error', () => done.fail());
+    });
   
-  //   // Return the promise
-  //   return store.dispatch(pokemonActions.getDataPokemonList())
-
-  //     .then(() => {
-  //       const actions = store.getActions()
-  //       expect(actions[0]).toEqual(success())
-  //     })
-  // })
+    it('returns an array.', () => {
+      return Promise.all([getByTypes(urlByTypes, keyword)])
+        .then((response) => expect(Array.isArray(response)).toEqual(true))
+    });
+  });
+  
 
 });
