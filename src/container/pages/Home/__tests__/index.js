@@ -2,10 +2,10 @@
 // --------------------------------------------------------
 
 import React from 'react';
-import Home from '../../index';
+import Home from '../index';
 import renderer from 'react-test-renderer';
 
-test('Input is match the snapshot', () => {
+test('Home is match the snapshot', () => {
 const component = renderer.create(
 Home,
 );

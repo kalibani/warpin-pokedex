@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pokemonActions setDataPokemon Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": Array [],
+    "type": "pokemon/SET_DATA_POKEMON",
+  },
+]
+`;
+
+exports[`pokemonActions setLoading Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": true,
+    "type": "pokemon/SET_LOADING",
+  },
+]
+`;
+
+exports[`pokemonActions setNextUrl Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "payload": "",
+    "type": "pokemon/SET_NEXT_URL",
+  },
+]
+`;

@@ -13,23 +13,23 @@ export const SET_NEXT_URL = 'pokemon/SET_NEXT_URL';
 export const SET_KEY_WORD = 'pokemon/SET_KEY_WORD';
 export const SET_HAS_MORE = 'pokemon/SET_HAS_MORE';
 
-const setLoading = (payload) => (dispatch) => {
+export const setLoading = (payload) => (dispatch) => {
   dispatch({ type: SET_LOADING, payload });
 };
 
-const setDataPokemon = (payload) => (dispatch) => {
+export const setDataPokemon = (payload) => (dispatch) => {
   dispatch({ type: SET_DATA_POKEMON, payload });
 };
 
-const setNextUrl = (payload) => (dispatch) => {
+export const setNextUrl = (payload) => (dispatch) => {
   dispatch({ type: SET_NEXT_URL, payload });
 };
 
-const setError = (payload) => (dispatch) => {
+export const setError = (payload) => (dispatch) => {
   dispatch({ type: SET_ERROR, payload });
 };
 
-const setHasMore = (payload) => (dispatch) => {
+export const setHasMore = (payload) => (dispatch) => {
   dispatch({ type: SET_HAS_MORE, payload });
 };
 
