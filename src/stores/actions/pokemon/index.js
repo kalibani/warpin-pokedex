@@ -80,7 +80,7 @@ export const searchPokemonByTypes = () => (dispatch, getState) => {
   dispatch(setLoading(true));
   dispatch(setHasMore(false));
 
-  getByTypes(url, keyword)
+  getByTypes(url, keyword.toLowerCase())
     .then(async ({ data }) => {
       const promises = [];
       data.pokemon.map((element) => promises.push(getPokemon(element.pokemon.url)));
