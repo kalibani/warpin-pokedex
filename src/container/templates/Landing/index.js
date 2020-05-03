@@ -30,7 +30,7 @@ const Landing = ({ isLoading, pokemonList, isScrolled }) => {
             <div className="landing-content-title">
               <H3 className="text-dark">
                 {
-                  pokemonList.length > 0 ? title : notFoundWord
+                  pokemonList.length > 0 ? title : isLoading ? '' : notFoundWord
                 }
               </H3>
             </div>
