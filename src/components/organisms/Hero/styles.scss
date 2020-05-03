@@ -18,6 +18,9 @@ Styles for Hero component
 
   .hero-content {
     margin-bottom: 50px;
+    @media (min-width: 320px) and (max-width: 480px) {
+      padding: 15px;
+    }
     .hero-text-2 {
       margin-bottom: 40px;
     }

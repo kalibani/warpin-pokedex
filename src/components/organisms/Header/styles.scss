@@ -31,6 +31,13 @@ Styles for Header component
       white-space: nowrap;
       align-items: center;
       overflow: visible;
+
+      &.right {
+        @media (min-width: 320px) and (max-width: 480px) {
+          display: none; 
+        }
+      }
+
       ul {
         margin: 0;
         li {
@@ -50,13 +57,6 @@ Styles for Header component
           }
         }
       }
-    }
-    .header-content-right {
-      display: flex;
-      flex-wrap: nowrap;
-      white-space: nowrap;
-      justify-content: flex-end;
-      overflow: visible;
     }
   }
 }

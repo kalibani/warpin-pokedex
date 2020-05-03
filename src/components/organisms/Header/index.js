@@ -20,7 +20,7 @@ const Header = ({ className }) => {
             <li><a href="/">Games</a></li>
           </ul>
         </div>
-        <div className="header-content-wrapper">
+        <div className="header-content-wrapper right">
           <ul>
             <li><a href="/">Contests</a></li>
             <li><a href="/">Locations</a></li>

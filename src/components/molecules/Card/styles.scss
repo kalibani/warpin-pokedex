@@ -40,6 +40,9 @@ Styles for Card component
     margin-top: 83px;
     margin-left: 10px;
     box-shadow: 20px;
+    @media (min-width: 320px) and (max-width: 480px) {
+      width: 37%;
+    }
     svg {
       float: left;
       position: relative;
@@ -47,6 +50,15 @@ Styles for Card component
       top: -25px;
       color: $white;
       font-size: 23px;
+      @media (min-width: 320px) and (max-width: 480px) {
+        left: 108px;
+      }
+      @media (min-width: 360px) and (max-width: 480px) {
+        left: 80px;
+      }
+      @media (min-width: 414px) and (max-width: 480px) {
+        left: 108px;
+      }
     }
     .text-capitalize {
         &:last-child {

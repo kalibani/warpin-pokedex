@@ -34,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     getPokemons();
-  }, []);
+  }, [getPokemons]);
   const classNames = classname('p-home');
   const length = pokemonList.length > 0 && pokemonList.length;
   return (

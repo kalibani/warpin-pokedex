@@ -73,7 +73,7 @@ const Card = ({
               <div> Stats :</div>
               {
                     statistics.map((element, index) => (
-                      <div className="d-flex justify-content-between">
+                      <div className="d-flex justify-content-between" key={index}>
                         <div className="text-capitalize">
                           { element.stat.name}
                         </div>
