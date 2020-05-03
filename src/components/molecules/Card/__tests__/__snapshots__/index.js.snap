@@ -1,3 +1,143 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Input is match the snapshot 1`] = `null`;
+exports[`<Card /> should render a card with the props 1`] = `
+<div
+  className="m-card"
+>
+  <div
+    className="card-clickable"
+    onClick={[Function]}
+    role="presentation"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            512,
+            512,
+            Array [],
+            "f141",
+            "M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z",
+          ],
+          "iconName": "ellipsis-h",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </div>
+  <div
+    className="card-clickable-area"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className=""
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Object {
+          "icon": Array [
+            320,
+            512,
+            Array [],
+            "f0d8",
+            "M288.662 352H31.338c-17.818 0-26.741-21.543-14.142-34.142l128.662-128.662c7.81-7.81 20.474-7.81 28.284 0l128.662 128.662c12.6 12.599 3.676 34.142-14.142 34.142z",
+          ],
+          "iconName": "caret-up",
+          "prefix": "fas",
+        }
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+    <Memo(H4)
+      className="text-dark text-capitalize"
+    />
+    <div
+      className="card-info"
+    >
+      <div
+        className="card-info-wrapper d-flex justify-content-between"
+      >
+        <div>
+          Height 
+        </div>
+        <div>
+          0
+        </div>
+      </div>
+      <div
+        className="card-info-wrapper d-flex justify-content-between"
+      >
+        <div>
+          Weight 
+        </div>
+        <div>
+          0
+        </div>
+      </div>
+      <div
+        className="card-info-wrapper d-flex justify-content-between"
+      >
+        <div>
+           Types 
+        </div>
+        <div />
+      </div>
+      <div
+        className="card-info-wrapper d-flex justify-content-between"
+      >
+        <div>
+           Abilities 
+        </div>
+        <div />
+      </div>
+      <div
+        className="card-info-wrapper"
+      >
+        <div>
+           Stats :
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="card-image-wrapper "
+  >
+    <img
+      alt="card-images"
+      className="lazy image-card"
+      src="https://dummy-url"
+      srcSet="https://dummy-url"
+    />
+  </div>
+  <Memo(H4)
+    className="text-dark text-capitalize ml-2 mt-3"
+  />
+</div>
+`;

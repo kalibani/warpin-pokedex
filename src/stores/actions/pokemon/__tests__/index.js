@@ -4,7 +4,6 @@ import { getPokemons, getPokemon, getByTypes } from 'api';
 
 // Actions to be tested
 import * as pokemonActions from '../index';
-import pokemon from 'stores/reducers/pokemon';
 import { response } from 'express';
 
 

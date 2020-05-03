@@ -5,41 +5,45 @@ import React from 'react';
 import Card from '../index';
 import toJson from 'enzyme-to-json';
 import { shallow } from 'enzyme';
-import { H4 } from 'components/atoms';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 const shallowSetup = () => {
   // Sample props to pass to our shallow render
   const props = {
     srcSet: 'https://dummy-url',
     src:'https://dummy-url',
     className: '',
-    name: 'name',
+    name: '',
     height: 0,
     weight: 0,
     types: [],
     abilities: [],
-    statistics: []
+    statistics: [],
+    isShow: true
   }
+
+  const mockOnClick = jest.fn();
   // wrapper instance around rendered output
-  const enzymeWrapper = shallow(<Card {...props} />);
+  const enzymeWrapper = shallow(<Card {...props} onClick={mockOnClick} />);
 
   return {
     props,
-    enzymeWrapper
+    enzymeWrapper,
+    mockOnClick
   };
 }
 
 describe('<Card />', () => {
   it('should render a card with the props', () => {
     // Setup wrapper and assign props.
-    const { enzymeWrapper, props } = shallowSetup();
+    const { enzymeWrapper, props, mockOnClick } = shallowSetup();
     
     expect(enzymeWrapper.find('img').hasClass('lazy image-card')).toBe(true);
-    // expect(enzymeWrapper.find(<H4></H4>).children()).toBe(props.name);
-    // expect(enzymeWrapper.find('div.card-info-wrapper.div').children()).toBe(props.types);
-    // expect(enzymeWrapper.find('div.card-info-wrapper.div').children).toBe(props.abilities);
-    // expect(enzymeWrapper.find('div.card-info-wrapper').children).toBe(props.statistics);
-    // expect(enzymeWrapper.containsMatchingElement(<div> Abilities</div>)).toBe(true);
+    enzymeWrapper.find('div.card-clickable').simulate('click');
+    // expect(mockOnClick.mock.calle.length).toEqual(1);
+    expect(enzymeWrapper.find('img').at(0).props().srcSet).toBe(props.srcSet);
+    expect(enzymeWrapper.containsMatchingElement(<FontAwesomeIcon icon={faEllipsisH} />)).toBe(true);
+    expect(toJson(enzymeWrapper)).toMatchSnapshot();
   });
 });
 
