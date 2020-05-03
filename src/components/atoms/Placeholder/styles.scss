@@ -17,6 +17,11 @@ Styles for Card component
   background: linear-gradient(to right, rgba(3, 19, 65, 0.52) 0%, rgba(38, 3, 65, 0.08) 100%);
   animation: pulse 5s infinite;
 
+  @media (min-width: 320px) and (max-width: 480px) {
+    flex: 25%;
+  }
+  
+
   @keyframes pulse {
     0% {
       background-color: rgba(3, 19, 65, 0.20);
